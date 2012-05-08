@@ -1,0 +1,3 @@
+[submodule "MacOSXDefaultFontFallbacksChanger"]
+	path = MacOSXDefaultFontFallbacksChanger
+	url = https://github.com/netj/MacOSXDefaultFontFallbacksChanger.git
