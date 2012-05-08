@@ -1,0 +1,25 @@
+#!/bin/bash
+
+set -e
+
+echo Gonna make menu bar autohide when Terminal is executing.
+echo Only users who die for ONE MORE LINE will do this.
+echo ------
+echo 터미널 앱이 실행중일 때 메뉴 바를 자동숨김모드가 되도록 합니다.
+echo 그 한줄을 위해 목숨건 사람만 실행하세용 ㅋ
+
+read -n1 -p "go? (y or n) "; echo; echo
+case $REPLY in [yY]) true ;; *) exit ;; esac
+
+if [ -f "tmp" ] || [ -d "tmp" ]; then
+    echo "rm -rf tmp then do it again plz";
+    exit
+fi
+
+if [ ! -f "/Applications/Utilities/Terminal.app/Contents/Info.plist" ]; then
+    echo "WTF? I can't find terminal app?!";
+    exit
+fi
+
+./read.pl < /Applications/Utilities/Terminal.app/Contents/Info.plist > tmp
+sudo mv tmp /Applications/Utilities/Terminal.app/Contents/Info.plist
